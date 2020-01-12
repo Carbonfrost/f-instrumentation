@@ -1,0 +1,11 @@
+﻿<configuration>
+    <configSections>
+        <section name="universalConfiguration" type="Carbonfrost.Commons.Configuration.UniversalConfigurationSection, Carbonfrost.Commons.UniversalConfiguration" />
+    </configSections>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+    </startup>
+    <universalConfiguration>
+        {UNIVERSAL_CONFIGURATION}
+    </universalConfiguration>
+</configuration>

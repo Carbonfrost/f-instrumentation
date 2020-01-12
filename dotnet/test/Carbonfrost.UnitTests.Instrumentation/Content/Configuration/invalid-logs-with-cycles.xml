@@ -1,0 +1,14 @@
+﻿<carbonfrost.commons.instrumentation
+    xmlns:ins="http://ns.carbonfrost.com/commons/instrumentation">
+    <loggers>
+        <logger name="a" parent="d" />
+        <logger name="b" parent="a" />
+        <logger name="c" parent="b" />
+        <logger name="d" parent="c" />
+
+        <logger name="e" parent="" />
+        <logger name="f" parent="e" />
+
+        <logger name="g" parent="missing" />
+    </loggers>
+</carbonfrost.commons.instrumentation>

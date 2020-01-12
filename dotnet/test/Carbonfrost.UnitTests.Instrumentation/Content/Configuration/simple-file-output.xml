@@ -1,0 +1,11 @@
+﻿<carbonfrost.commons.instrumentation xmlns:ins="http://ns.carbonfrost.com/commons/instrumentation">
+    <loggers>
+        <root>
+            <target type="ins:FileTarget"
+                    fileName="Simple.log">
+                <renderer type="ins:TextRenderer"
+                          layout="{TimeStamp:u} {Level} {Thread} {Message}{NewLine}" />
+            </target>
+        </root>
+    </loggers>
+</carbonfrost.commons.instrumentation>

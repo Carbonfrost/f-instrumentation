@@ -1,0 +1,9 @@
+﻿<carbonfrost.commons.instrumentation
+    xmlns:ins="http://ns.carbonfrost.com/2008/commons/instrumentation">
+
+    <loggers>
+        <root>
+            <target type="ins:FileTarget" />
+        </root>
+    </loggers>
+</carbonfrost.commons.instrumentation>
