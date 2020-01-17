@@ -1,0 +1,16 @@
+﻿<environmentData
+    xmlns="http://ns.carbonfrost.com/commons/instrumentation"
+
+    commandLine="build --parallel"
+    hasShutdownStarted="false"
+    machineName="MY-PC"
+    oSVersion="Microsoft Windows NT 6.2.9200.0"
+    processorCount="4"
+    systemDirectory="C:\WINDOWS\system32"
+    userDomainName="MY-PC"
+    userInteractive="true"
+    userName="GEORGE"
+    version="4.0.30319.18010"
+    isMono="false"
+    frameworkVersion="4.0.30319.18010">
+</environmentData>

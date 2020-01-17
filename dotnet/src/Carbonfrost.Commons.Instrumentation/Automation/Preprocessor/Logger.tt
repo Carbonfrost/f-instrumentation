@@ -1,0 +1,108 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".g.cs" #>
+<#@ assembly name="System.Linq" #>
+<#@ import namespace="System.Linq" #>
+
+// File generated at <#= DateTime.Now #>
+
+<#
+    string[] types = { "Debug", "Trace", "Info", "Warn", "Error", "Fatal" };
+    string[] conditionals = { "Debug", "Trace" };
+
+#>
+using System;
+using System.Diagnostics;
+using System.Globalization;
+
+namespace Carbonfrost.Commons.Instrumentation {
+
+<# foreach (string type in new [] { "Log", "Logger" }) {
+      bool _static = (type == "Log");
+#>
+
+    partial class <#= type #> {
+
+<# foreach (string name in types) {
+   string attrs = "";
+   string logMethod = "Log";
+
+   if (conditionals.Contains(name))
+     attrs = "[Conditional(\"" + name.ToUpperInvariant() + "\")]";
+
+   if (_static) {
+    attrs += " static";
+    logMethod = "Write";
+   }
+#>
+        public <# if (_static) { #>static <# } #>bool <#= name #>Enabled {
+            get {
+                return Enabled(LoggerLevel.<#= name #>);
+            }
+        }
+
+        <#= attrs #>
+        public void <#= name #>(object value, object data = null) {
+            <#= logMethod #>(LoggerLevel.<#= name #>, value, data);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Event(Func<LoggerEvent> eventFactory) {
+            <#= logMethod #>Event(LoggerLevel.<#= name #>, eventFactory);
+        }
+
+        <#= attrs #>
+        public void <#= name #>(string message, object data = null) {
+            <#= logMethod #>(LoggerLevel.<#= name #>, message, data);
+        }
+
+        <#= attrs #>
+        public void <#= name #>(string message, Exception exception, object data = null) {
+            <#= logMethod #>(LoggerLevel.<#= name #>, message, exception, data);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(string format, params object[] args) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, format, (object[]) args);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(string format, object arg0) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, format, arg0);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(IFormatProvider formatProvider, string format, object arg0) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, formatProvider, format, arg0);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(IFormatProvider formatProvider, string format, params object[] args) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, formatProvider, format, (object[]) args);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(string format, object arg0, object arg1) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, format, arg0, arg1);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(IFormatProvider formatProvider, string format, object arg0, object arg1)  {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, formatProvider, format, arg0, arg1);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(string format, object arg0, object arg1, object arg2) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, format, arg0, arg1, arg2);
+        }
+
+        <#= attrs #>
+        public void <#= name #>Format(IFormatProvider formatProvider, string format, object arg0, object arg1, object arg2) {
+            <#= logMethod #>Format(LoggerLevel.<#= name #>, formatProvider, format, arg0, arg1, arg2);
+        }
+<# } #>
+
+    }
+
+<# } #>
+
+}

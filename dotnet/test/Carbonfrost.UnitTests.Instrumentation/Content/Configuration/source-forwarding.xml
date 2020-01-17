@@ -1,0 +1,10 @@
+﻿<carbonfrost.commons.instrumentation
+    xmlns:ins="http://ns.carbonfrost.com/2008/commons/instrumentation">
+    <loggers>
+        <logger name="a" sources="d*" />
+
+        <logger name="d1" />
+        <logger name="d2" />
+        <logger name="d3" />
+    </loggers>
+</carbonfrost.commons.instrumentation>

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../Build.props" />
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Carbonfrost.Commons.Instrumentation</RootNamespace>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Copyright>Copyright 2010-2016, 2020 Carbonfrost Systems, Inc.</Copyright>
+    <Authors>Carbonfrost</Authors>
+    <Description>
+      A framework for logging and metrics
+    </Description>
+    <PackageProjectUrl>https://github.com/Carbonfrost/f-instrumentation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Carbonfrost/f-instrumentation</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Carbonfrost.Commons.Core" Version="0.2.1" />
+    <PackageReference Include="Carbonfrost.Commons.PropertyTrees" Version="0.1.0" />
+    <PackageReference Include="Carbonfrost.Commons.Validation" Version="0.1.0" />
+  </ItemGroup>
+</Project>

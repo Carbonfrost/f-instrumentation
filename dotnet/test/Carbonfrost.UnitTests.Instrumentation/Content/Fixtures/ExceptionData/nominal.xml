@@ -1,0 +1,16 @@
+﻿<ExceptionData
+    xmlns="http://ns.carbonfrost.com/commons/instrumentation"
+
+    helpLink="some"
+    hResult="404"
+    message="some"
+    source="some"
+    stackTrace="some"
+    targetSite="some">
+
+    <data></data>
+
+    <innerException>
+    </innerException>
+
+</ExceptionData>

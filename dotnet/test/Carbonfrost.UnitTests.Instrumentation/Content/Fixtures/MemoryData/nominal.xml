@@ -1,0 +1,15 @@
+﻿<MemoryData
+    xmlns="http://ns.carbonfrost.com/commons/instrumentation"
+
+    maxWorkingSet="89"
+    minWorkingSet="89"
+    nonpagedSystemMemorySize="89"
+    pagedMemorySize="89"
+    pagedSystemMemorySize="89"
+    peakPagedMemorySize="89"
+    peakVirtualMemorySize="89"
+    peakWorkingSet="89"
+    privateMemorySize="89"
+    virtualMemorySize="89"
+    workinget="89">
+</MemoryData>
