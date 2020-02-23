@@ -230,18 +230,4 @@ namespace Carbonfrost.Commons.Instrumentation {
             return (LoggerLevel[]) AllValues.Clone();
         }
     }
-
-#if NET
-
-    partial class LoggerLevel : IObjectReference {
-
-        // IObjectReference
-        object IObjectReference.GetRealObject(StreamingContext context) {
-            return FromValue(this.value);
-        }
-
-    }
-
-#endif
-
 }

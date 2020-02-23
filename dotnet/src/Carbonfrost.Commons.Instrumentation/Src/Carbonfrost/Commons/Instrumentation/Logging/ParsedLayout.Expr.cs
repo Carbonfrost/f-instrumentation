@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 using System.Text.RegularExpressions;
@@ -114,14 +115,14 @@ namespace Carbonfrost.Commons.Instrumentation.Logging {
 
             internal static VariableExpr App {
                 get {
-#if NET
                     Assembly a = Assembly.GetEntryAssembly();
-                    if (a != null)
+                    if (a != null) {
                         return Create(() => a.GetName().Name);
+                    }
                     string app = AppDomain.CurrentDomain.FriendlyName;
-                    if (!string.IsNullOrEmpty(app))
+                    if (!string.IsNullOrEmpty(app)) {
                         return Create(() => app);
-#endif
+                    }
 
                     string p = Process.GetCurrentProcess().ProcessName;
                     return Create(() => p);
@@ -130,11 +131,7 @@ namespace Carbonfrost.Commons.Instrumentation.Logging {
 
             internal static VariableExpr Machine {
                 get {
-                    #if NET
                     return Create(() => Environment.MachineName);
-                    #else
-                    return Create(() => "Environment.MachineName");
-                    #endif
                 }
             }
 

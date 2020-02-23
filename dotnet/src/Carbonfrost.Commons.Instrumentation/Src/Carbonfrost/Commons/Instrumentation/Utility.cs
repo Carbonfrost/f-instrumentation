@@ -119,14 +119,12 @@ namespace Carbonfrost.Commons.Instrumentation {
         }
 
         public static StackFrame FindStackFrame(bool needFileInfo) {
-#if NET
             StackTrace st = new StackTrace(1, needFileInfo);
             foreach (var sf in st.GetFrames()) {
                 Type declaringType = sf.GetMethod().DeclaringType;
                 if (!declaringType.IsDefined(typeof(SkipFramesAttribute), false))
                     return sf;
             }
-#endif
             return null;
         }
 

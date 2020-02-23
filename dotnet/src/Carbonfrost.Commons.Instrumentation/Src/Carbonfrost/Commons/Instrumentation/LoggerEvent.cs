@@ -52,7 +52,7 @@ namespace Carbonfrost.Commons.Instrumentation {
             get { return Data.GetPropertyOrDefault(EXCEPTION, (ExceptionData) null); }
             set {
                 if (value != null) {
-                    Data.AppendTree(EXCEPTION).Value = value;
+                    Data.AppendPropertyTree(EXCEPTION).Value = value;
                 }
             }
         }

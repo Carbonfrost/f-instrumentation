@@ -82,11 +82,9 @@ namespace Carbonfrost.Commons.Instrumentation {
             return FromName(assembly.GetName().Name);
         }
 
-#if NET
         public static Logger ForAssembly() {
             return FromName(Assembly.GetCallingAssembly().GetName().Name);
         }
-#endif
 
         static Logger BuildLoggerSafe(LoggerBuilder lb, string name) {
             Logger result;
@@ -127,10 +125,8 @@ namespace Carbonfrost.Commons.Instrumentation {
         static void LeaveLogger(object o, EventArgs e) {
             _root.Dispose();
 
-#if NET
             AppDomain.CurrentDomain.DomainUnload -= LeaveLogger;
             AppDomain.CurrentDomain.ProcessExit -= LeaveLogger;
-#endif
         }
 
         static void Init() {
@@ -140,10 +136,10 @@ namespace Carbonfrost.Commons.Instrumentation {
             init = true;
             int loggerCount = InstrumentationConfiguration.Current.Loggers.Count;
             Traceables.RootLoggerInitializing(loggerCount);
-#if NET
+
             AppDomain.CurrentDomain.ProcessExit += LeaveLogger;
             AppDomain.CurrentDomain.DomainUnload += LeaveLogger;
-#endif
+
             // Break cycles in forwarding
             var builders = InstrumentationConfiguration.Current.Loggers;
 

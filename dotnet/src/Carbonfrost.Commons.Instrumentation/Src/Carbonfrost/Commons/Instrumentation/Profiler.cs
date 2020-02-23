@@ -66,12 +66,10 @@ namespace Carbonfrost.Commons.Instrumentation {
             return ForLogger(Logger.ForAssembly(assembly));
         }
 
-#if NET
         public static Profiler ForAssembly() {
             var assembly = Assembly.GetCallingAssembly();
             return ForLogger(Logger.ForAssembly(assembly));
         }
-#endif
 
         void IDisposable.Dispose() {}
 

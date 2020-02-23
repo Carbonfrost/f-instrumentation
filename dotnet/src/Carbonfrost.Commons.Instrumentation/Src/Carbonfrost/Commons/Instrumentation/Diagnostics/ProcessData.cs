@@ -92,14 +92,12 @@ namespace Carbonfrost.Commons.Instrumentation.Diagnostics {
             return new ProcessData {
                 HasExited = process.HasExited,
                 PriorityBoostEnabled = process.PriorityBoostEnabled,
-#if NET
                 Responding = process.Responding,
                 Handle = process.Handle,
                 HandleCount = process.HandleCount,
                 MainWindowHandle = process.MainWindowHandle,
                 MainWindowTitle = process.MainWindowTitle,
                 SynchronizingObjectType = (process.SynchronizingObject == null) ? null : process.SynchronizingObject.GetType(),
-#endif
                 ExitTime = process.ExitTime,
                 StartTime = process.StartTime,
                 BasePriority = process.BasePriority,
