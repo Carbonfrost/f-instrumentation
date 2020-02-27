@@ -58,8 +58,8 @@ namespace Carbonfrost.UnitTests.Instrumentation.Logging {
             var mem = LoadTree("MemoryData/nominal.xml", "memory");
 
             // Adding for the sake of nesting
-            env.AppendChild(mem);
-            result.AppendChild(env);
+            env.Append(mem);
+            result.Append(env);
         }
 
         private PropertyTree LoadTree(string path, string root) {

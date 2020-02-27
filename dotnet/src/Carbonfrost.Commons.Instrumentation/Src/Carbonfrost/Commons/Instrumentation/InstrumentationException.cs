@@ -27,9 +27,7 @@ namespace Carbonfrost.Commons.Instrumentation {
         public InstrumentationException(string message) : base(message) {}
         public InstrumentationException(string message, Exception innerException) : base(message, innerException) {}
 
-#if NET
-		protected InstrumentationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
-#endif
+        protected InstrumentationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
 
     }
 

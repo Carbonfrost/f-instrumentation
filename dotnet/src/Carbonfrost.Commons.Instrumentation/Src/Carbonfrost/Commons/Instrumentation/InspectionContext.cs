@@ -42,7 +42,7 @@ namespace Carbonfrost.Commons.Instrumentation {
             ThrowIfClosed();
 
             if (value != null)
-                this.evt.Value.AppendChild(ConvertToNode(name, value));
+                this.evt.Value.Append(ConvertToNode(name, value));
         }
 
         private void Close() {

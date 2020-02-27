@@ -46,7 +46,7 @@ namespace Carbonfrost.Commons.Instrumentation {
                 PropertyTree tree = Data["value"] as PropertyTree;
 
                 if (tree == null) {
-                    Data.AppendTree("value");
+                    Data.AppendPropertyTree("value");
                     tree = (PropertyTree) Data["value"];
                 }
 

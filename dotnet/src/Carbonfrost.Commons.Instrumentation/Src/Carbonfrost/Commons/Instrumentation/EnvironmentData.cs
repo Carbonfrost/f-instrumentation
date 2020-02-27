@@ -1,13 +1,11 @@
 //
-// - EnvironmentData.cs -
-//
-// Copyright 2010 Carbonfrost Systems, Inc. (http://carbonfrost.com)
+// Copyright 2010, 2020 Carbonfrost Systems, Inc. (https://carbonfrost.com)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+//     https://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -45,10 +43,8 @@ namespace Carbonfrost.Commons.Instrumentation {
         [XmlAttribute("machineName")]
         public string MachineName { get; set; }
 
-#if NET
         [XmlElement("osVersion")]
         public OperatingSystem OSVersion { get; set; }
-#endif
 
         [XmlAttribute("processorCount")]
         public int ProcessorCount { get; set; }
@@ -82,7 +78,6 @@ namespace Carbonfrost.Commons.Instrumentation {
 
         internal static EnvironmentData Create(Verbosity verbosity) {
             var result = new EnvironmentData {
-#if NET
                 CommandLine = Environment.CommandLine,
                 FrameworkVersion = RuntimeEnvironment.GetSystemVersion(),
                 MachineName = Environment.MachineName,
@@ -92,7 +87,6 @@ namespace Carbonfrost.Commons.Instrumentation {
                 SystemDirectory = Environment.SystemDirectory,
                 OSVersion = Environment.OSVersion,
                 Version = Environment.Version,
-#endif
                 HasShutdownStarted = Environment.HasShutdownStarted,
                 ProcessorCount = Environment.ProcessorCount,
                 IsMono = Platform.Current.IsMono,
@@ -111,9 +105,7 @@ namespace Carbonfrost.Commons.Instrumentation {
                 return;
 
             try {
-#if NET
                 result.LogicalDrives.AddMany(Environment.GetLogicalDrives());
-#endif
                 return;
 
             } catch (SecurityException) {
