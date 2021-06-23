@@ -1,5 +1,7 @@
 .PHONY: dotnet/generate dotnet/test -dotnet/test
 
+-include eng/Makefile
+
 ## Generate generated code
 dotnet/generate:
 	srgen -c Carbonfrost.Commons.Instrumentation.Resources.SR \
@@ -16,4 +18,3 @@ dotnet/test: dotnet/publish -dotnet/test
 	fspec -i dotnet/test/Carbonfrost.UnitTests.Instrumentation/Content \
 		dotnet/test/Carbonfrost.UnitTests.Instrumentation/bin/$(CONFIGURATION)/netcoreapp3.0/publish/Carbonfrost.UnitTests.Instrumentation.dll
 
--include eng/.mk/*.mk
