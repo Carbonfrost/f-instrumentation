@@ -1,3 +1,5 @@
 dotnet/*/*/obj
 dotnet/*/*/bin
 paket-files
+
+.fspec/results.json
